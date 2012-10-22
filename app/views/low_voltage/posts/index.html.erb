@@ -1,0 +1,24 @@
+<h1>Recent Blog Posts</h1>
+
+<section class="posts">
+  <% @posts.each do |post| %>
+    <article class="post">
+      <h2><%= link_to post.title, post_path(post.id) %> <small>By <%= post.author %></small></h2>
+      <%= date_bubble(post.date) %>
+      <%= post.content %>
+    </article>
+  <% end %>
+</section>
+
+<ul class="blog-pager">
+  <% if @offset > 0 %>
+    <li class="prev">
+      <%= link_to "<i class=\"icon-arrow-left\"></i> Newer".html_safe, posts_path(:offset => @offset - 10) %>
+    </li>
+  <% end %>
+  <% if @offset + 10 < @total_posts %>
+    <li class="next">
+      <%= link_to "Older <i class=\"icon-arrow-right\"></i>".html_safe, posts_path(:offset => @offset + 10) %>
+    </li>
+  <% end %>
+</ul>
