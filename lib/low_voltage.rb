@@ -9,9 +9,12 @@ module LowVoltage
     attr_accessor :configuration
   end
 
+  def self.configuration
+    @configuration ||= Configuration.new
+  end
+
   def self.configure
-    self.configuration ||= Configuration.new
-    yield(configuration)
+    yield(configuration) if block_given?
   end
 
   require 'low_voltage/engine' if defined?(Rails)
