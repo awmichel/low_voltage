@@ -14,9 +14,20 @@ Add the following line to your Gemfile:
 
 ## Basic Usage
 
-1. Add a directory called `posts` with a subdirectory called `sources` to your views folder.
-2. Place your markdown flavored blog posts in the `sources` directory.
-3. Refresh.
+1. Add a directory called `posts` to your views folder, all your blog posts will go here.
+2. Publish a new blog post by creating a new markdown file similar to the example below:
+``` 
+    ---
+    title: Secondary Title
+    date: June 28 2012
+    author: Adam Michel
+    ---
+
+    Hello World
+    ===========
+    Here is my first post!
+```
+3. Run `rails server` and browse to [localhost:3000/blog](http://localhost:3000/blog) to see your new Markdown powered blog.
 
 ## TODO
 
